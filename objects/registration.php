@@ -9,7 +9,67 @@ class Registration {
   public $phone;
   public $registerer;
   public $milan_id;
-  public $events;
+  public $events = array(
+    'dance' => array(
+      'western' => array(
+        'text' => 'We',
+        'set' => false
+      ),
+      'eastern' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'doubles' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'triples' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'bollywood' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'group' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'choreo_theme' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'choreo_nontheme' => array(
+        'text' => '',
+        'set' => false
+      )
+    ),
+    'fashion' => array(
+      'text' => '',
+      'set' => false
+    ),
+    'creative' => array(
+      'road' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'collage' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'face' => array(
+        'text' => '',
+        'set' => false
+      ),
+      'mask' => array(
+        'text' => '',
+        'set' => false
+      )
+    ),
+    'literary' => array(
+
+    )
+  );
   public $timestamp;
 
   public function __construct($db){
@@ -48,6 +108,12 @@ class Registration {
     } else {
       return false;
     }
+  }
+
+  public function selectAll() {
+    $sql = "SELECT * FROM registration";
+
+    return $this->conn->query($sql);
   }
 
 }
