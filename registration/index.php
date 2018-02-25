@@ -11,7 +11,7 @@
   <form class="" action="process-registration.php" method="post">
     <div class="form-group">
       <label for="milanid">Milan ID</label>
-      <input type="text" class="form-control" id="milanid" name="milan_id" value="<?php echo uniqid('M'); ?>" readonly>
+      <input type="text" class="form-control-plaintext" id="milanid" name="milan_id" value="<?php echo uniqid('M'); ?>" readonly>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
