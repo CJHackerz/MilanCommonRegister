@@ -37,10 +37,10 @@
     </div>
     <div class="form-group">
       <label for="domain">Domain</label>
-      <select name="domain" class="form-control">
+      <select name="domain" class="form-control" id="domain_select" onchange="setDomain()">
 
         <?php
-          foreach ($registration->domain as $key) {
+          foreach ($registration->domains as $key) {
             echo '<option value="' . $key['value'] . '">' . $key['text'] . '</option>';
           }
         ?>
@@ -49,8 +49,8 @@
     </div>
     <div class="form-group">
       <label for="event">Event</label>
-      <select name="event" class="form-control">
-        <option value="volvo">Volvo</option>
+      <select name="event" class="form-control" id="event_select">
+        <!-- <option value="volvo">Volvo</option> -->
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
@@ -60,3 +60,25 @@
 <?php
   include '../templates/footer.php';
 ?>
+
+<script type="text/javascript">
+<?php
+  echo 'var events = ' . json_encode($registration->events) . ';' ;
+?>
+  function setDomain() {
+    var selectBox = document.getElementById("domain_select");
+    var eventSelect = document.getElementById("event_select");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+    eventSelect.options.length = 0;
+    i=0;
+    jQuery.each(events[selectedValue], function(key, val) {
+      eventSelect.options[i] = new Option(val['text'], key);
+      i++;
+    });
+  }
+
+  $( document ).ready(function() {
+    setDomain();
+  });
+</script>
