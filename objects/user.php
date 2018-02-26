@@ -1,4 +1,7 @@
 <?php
+include_once '../objects/mail.php';
+
+
 class User {
   // database connection and table name
   private $conn;
@@ -12,10 +15,11 @@ class User {
   public function __construct($db){
       $this->conn = $db;
   }
-  public function newUser($name, $email, $password, $role) {
+  public function newUser($name, $email, $role) {
     $this->name = htmlspecialchars(strip_tags($name));
     $this->email = htmlspecialchars(strip_tags($email));
-    $this->password = password_hash(htmlspecialchars(strip_tags($password)), PASSWORD_BCRYPT);
+    $uniq_password = uniqid();
+    $this->password = password_hash($uniq_password, PASSWORD_DEFAULT);
     $this->role = htmlspecialchars(strip_tags($role));
 
     $sql = "INSERT INTO user(name, email, password, role)
@@ -26,25 +30,25 @@ class User {
               '$this->role'
             )";
     if($this->conn->query($sql)) {
-      return true;
+      $mail = new Mail();
+      return $mail->newUserMail($this->email, $this->name, $uniq_password);
     } else {
       return false;
     }
   }
 
-  public function login($name, $password) {
+  public function login($email, $password) {
     $this->email = htmlspecialchars(strip_tags($email));
-    $this->password = password_hash(htmlspecialchars(strip_tags($password)), PASSWORD_BCRYPT);
+    $this->password = htmlspecialchars(strip_tags($password));
 
-    $sql = "SELECT * FROM user where email = '$this->email' AND password = '$this->password'";
+    $sql = "SELECT * FROM user where email = '$this->email'";
 
     $result = $this->conn->query($sql);
-
-    if($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    
+    if(password_verify($this->password, $row['password'])) {
       session_start();
-      $row = $result->fetch_assoc();
-      $_SESSION['user'] = $name;
-      $_SESSION['role'] = $row['role'];
+      $_SESSION['user'] = $row;
       return true;
     } else {
       return false;

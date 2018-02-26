@@ -4,7 +4,7 @@
 
   if(
     $_SERVER['REQUEST_METHOD'] == 'POST' &&
-    isset($_POST['name']) &&
+    isset($_POST['email']) &&
     isset($_POST['password'])
   ) {
 
@@ -13,10 +13,12 @@
 
     $user = new User($db);
 
-    if($user->login($_POST['name'], $_POST['password'])) {
-      header('Location: ./');
+    if($user->login($_POST['email'], $_POST['password'])) {
+      header('Location: ../registration/');
+    } else {
+      header('Location: ./login.php?invalid');
     }
   } else {
-    header('Location: ./login.php');
+    header('Location: ./login.php?invalid');
   }
 ?>
