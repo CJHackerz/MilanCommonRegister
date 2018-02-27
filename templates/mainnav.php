@@ -27,12 +27,12 @@
               Registration <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="../registration/event.php">
               <span data-feather="file"></span>
               Event Registration
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="../registration/list.php">
               <span data-feather="shopping-cart"></span>

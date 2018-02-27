@@ -1,4 +1,5 @@
 <?php
+  include_once '../admin/admin-auth-check.php';
   include_once '../templates/head.php';
   include_once '../templates/mainnav-admin.php';
 ?>

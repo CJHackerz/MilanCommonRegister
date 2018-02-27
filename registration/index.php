@@ -1,6 +1,13 @@
 <?php
+  include_once '../user/session-check.php';
+
   include_once '../templates/head.php';
-  include_once '../templates/mainnav.php';
+  if($_SESSION['user']['role'] == 'admin') {
+    include_once '../templates/mainnav-admin.php';
+  } else {
+    include_once '../templates/mainnav.php';
+  }
+
 ?>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">

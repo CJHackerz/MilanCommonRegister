@@ -1,6 +1,12 @@
 <?php
+  include_once '../user/session-check.php';
+
   include_once '../templates/head.php';
-  include_once '../templates/mainnav.php';
+  if($_SESSION['user']['role'] == 'admin') {
+    include_once '../templates/mainnav-admin.php';
+  } else {
+    include_once '../templates/mainnav.php';
+  }
 
   include_once '../config/database.php';
   include_once '../objects/registration.php';

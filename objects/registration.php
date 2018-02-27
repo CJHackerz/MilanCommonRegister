@@ -272,5 +272,23 @@ class Registration {
     return $this->conn->query($sql);
   }
 
+  public function updateEvent($milan_id, $domain, $event) {
+    $row = $this->selectParticipant($milan_id);
+    $ev = json_decode($row['events'], true);
+
+    if(!$ev[$domain][$event]['set']) {
+      $ev[$domain][$event]['set'] = true;
+      $ev = json_encode($ev);
+      $sql = "UPDATE registration SET events = '$ev' where milan_id = '$milan_id'";
+
+      if($this->conn->query($sql)) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
 }
 ?>

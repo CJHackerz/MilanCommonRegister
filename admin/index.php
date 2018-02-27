@@ -1,4 +1,6 @@
 <?php
+  include_once '../admin/admin-auth-check.php';
+
   include_once '../templates/head.php';
   include_once '../templates/mainnav-admin.php';
 ?>
@@ -8,7 +10,7 @@
     <h1 class="h2">Admin Panel</h1>
   </div>
 
-  
+
 </main>
 
 <?php

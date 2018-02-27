@@ -1,18 +1,21 @@
 <?php
-  include_once '../templates/head.php';
-  include_once '../templates/mainnav.php';
+  include_once '../user/session-check.php';
 
+  include_once '../templates/head.php';
+  if($_SESSION['user']['role'] == 'admin') {
+    include_once '../templates/mainnav-admin.php';
+  } else {
+    include_once '../templates/mainnav.php';
+  }
   include_once '../config/database.php';
   include_once '../objects/registration.php';
 
-  include_once '../user/session-check.php';
-  
   $database = new Database();
   $db = $database->getConnection();
 
   $registration = new Registration($db);
 
-  $participant = $registration->selectParticipant()
+  $participant = $registration->selectParticipant($_GET['id']);
 ?>
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
@@ -22,22 +25,22 @@
     <h1 class="h2">Event/Domain Registration</h1>
   </div>
 
-  <form class="" action="process-update.php" method="post">
+  <form class="" action="process-event.php" method="post">
     <div class="form-group">
       <label for="milanid">Milan ID</label>
-      <input type="text" class="form-control-plaintext" id="milanid" name="milan_id" value="" readonly>
+      <input type="text" class="form-control" id="milanid" name="milan_id" value="<?php echo $participant['milan_id'];?>" readonly>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control-plaintext" id="name" name="name" readonly>
+      <input type="text" class="form-control" id="name" name="name" value="<?php echo $participant['name'];?>" readonly>
     </div>
     <div class="form-group">
       <label for="college">College Name</label>
-      <input type="text" class="form-control-plaintext" id="college" name="college" readonly>
+      <input type="text" class="form-control" id="college" name="college" value="<?php echo $participant['college_name'];?>" readonly>
     </div>
     <div class="form-group">
       <label for="phone">Phone Number</label>
-      <input type="text" class="form-control-plaintext" id="phone" name="phone" readonly>
+      <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $participant['phone'];?>" readonly>
     </div>
     <div class="form-group">
       <label for="domain">Domain</label>
@@ -59,6 +62,19 @@
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
   </form>
+
+  <h3>Events already taken part in</h3>
+  <?php
+    $ev = json_decode($participant['events'], true);
+
+    foreach($ev as $key) {
+     foreach($key as $k) {
+       if($k['set']) {
+         echo '<br>' . $k['text'];
+       }
+     }
+    }
+  ?>
 </main>
 
 <?php
