@@ -35,7 +35,7 @@ class Registration {
       'value' => 'music'
     ),
   );
-  
+
   public $events = array(
     'dance'   => array(
       'western' => array(

@@ -32,22 +32,23 @@
       <?php
         $result = $registration->selectAll();
         $i=1;
-        while ($row = $result->fetch_assoc()) {
-          $milan_id = $row['milan_id'];
-          $name     = $row['name'];
-          $college  = $row['college'];
-          $phone    = $row['phone'];
-          echo '
-            <a href="./event.php?id=' . $milan_id . '"
-            <tr>
-              <td>$i</td>
-              <td>$milan_id</td>
-              <td>$name</td>
-              <td>$college</td>
-              <td>$phone</td>
-            </tr>
-          ';
-          $i++;
+        if($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $milan_id = $row['milan_id'];
+            $name     = $row['name'];
+            $college  = $row['college_name'];
+            $phone    = $row['phone'];
+            echo "
+              <tr>
+                <td>$i</td>
+                <td>$milan_id</td>
+                <td><a href='../registration/event.php?id=$milan_id'>$name</a></td>
+                <td>$college</td>
+                <td>$phone</td>
+              </tr>
+            ";
+            $i++;
+          }
         }
       ?>
     </tbody>

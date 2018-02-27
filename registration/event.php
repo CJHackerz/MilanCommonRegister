@@ -5,10 +5,14 @@
   include_once '../config/database.php';
   include_once '../objects/registration.php';
 
+  include_once '../user/session-check.php';
+  
   $database = new Database();
   $db = $database->getConnection();
 
   $registration = new Registration($db);
+
+  $participant = $registration->selectParticipant()
 ?>
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
