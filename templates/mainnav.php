@@ -21,12 +21,6 @@
               Registration <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../registration/">
-              <span data-feather="home"></span>
-              Registration <span class="sr-only">(current)</span>
-            </a>
-          </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="../registration/event.php">
               <span data-feather="file"></span>
@@ -37,6 +31,12 @@
             <a class="nav-link" href="../registration/list.php">
               <span data-feather="shopping-cart"></span>
               List
+            </a>
+          </li>
+          <li class="nav-item" style="margin-top: 380px;">
+            <a class="nav-link" href="https://webarchsrm.com" target="_blank">
+              <span data-feather="shopping-cart"></span>
+              <img src="../webarch_logo.png" alt="" style="max-height: 57px; max-width: 170px;">
             </a>
           </li>
         </ul>

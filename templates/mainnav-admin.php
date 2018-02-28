@@ -39,6 +39,12 @@
               Create User
             </a>
           </li>
+          <li class="nav-item" style="margin-top: 380px;">
+            <a class="nav-link" href="https://webarchsrm.com" target="_blank">
+              <span data-feather="shopping-cart"></span>
+              <img src="../webarch_logo.png" alt="" style="max-height: 57px; max-width: 170px;">
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

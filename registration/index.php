@@ -16,19 +16,19 @@
   </div>
 
   <form class="" action="process-registration.php" method="post">
-    <div class="form-group">
+    <div class="form-group" style="font-weight: bold;">
       <label for="milanid">Milan ID</label>
       <input type="text" class="form-control-plaintext" id="milanid" name="milan_id" value="<?php echo 'M' . mt_rand(100000, 999999); ?>" readonly>
     </div>
-    <div class="form-group">
+    <div class="form-group" style="font-weight: bold;">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" name="name" required>
     </div>
-    <div class="form-group">
+    <div class="form-group" style="font-weight: bold;">
       <label for="college">College Name</label>
       <input type="text" class="form-control" id="college" name="college" required>
     </div>
-    <div class="form-group">
+    <div class="form-group" style="font-weight: bold;">
       <label for="name">Phone Number</label>
       <input type="text" class="form-control" id="phone" name="phone" required>
     </div>
