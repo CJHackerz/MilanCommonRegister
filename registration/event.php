@@ -62,20 +62,44 @@
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
   </form>
-
-  <h3>Events already taken part in</h3>
+  <br>
+  <hr>
+  <h3>Events already taken part in :</h3>
   <?php
     $ev = json_decode($participant['events'], true);
 
     foreach($ev as $key) {
      foreach($key as $k) {
        if($k['set']) {
-         echo '<br>' . $k['text'];
+         echo '<h4>' . '<span class="badge badge-success">'.$k['text'].'</span></h4>';
        }
      }
     }
   ?>
 </main>
+
+<?php
+    if(isset($_GET['success'])) {
+        if($_GET['success'] == '') {
+    ?>
+    <script type="text/javascript">
+    swal("Nice!", "Details Updated !", "success");
+    </script>
+    <?php
+        }
+    }
+    else if(isset($_GET['failed']))
+    {
+        if($_GET['failed'] == '')
+        {
+            ?>
+            <script type="text/javascript">
+            swal("Oops!", "Details not updated !", "error");
+            </script>
+            <?php
+        }
+    }
+    ?>
 
 <?php
   include '../templates/footer.php';

@@ -14,7 +14,7 @@ class Mail {
       'from'    => 'milan@webarchsrm.com',
       'to'      => $email,
       'subject' => 'Milan Registration Login',
-      'html'    => 'Click <a href="http://register.srmmilan.in/user/login.php>HERE</a> to login. <br> <b>Details</b> <br>Name: ' . $name . '<br>Password: ' . $password
+      'html'    => '<html>Click <a href="http://register.srmmilan.in/user/login.php>HERE</a> to login. <br> <b>Details</b> <br>Name: ' . $name . '<br>Password: ' . $password . '</html>'
     ]);
   }
 
