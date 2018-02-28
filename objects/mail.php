@@ -16,17 +16,10 @@ class Mail {
       'subject' => 'Milan Registration Login',
       'html'    => '<html>
 
-      <style>
-        html {
-            background-color: #515151;
-            color: #fff;
-        }
-      </style>
-
       Click
       <a href="http://register.srmmilan.in/user/login.php">HERE</a> to login. <br> <b>Details</b> <br>Name: ' . $name . '<br>Password: ' . $password .
       '<br>
-        <a href="https://webarchsrm.com"><img src="https://webarchsrm.com/logo.png"></a>
+        <a href="https://webarchsrm.com"><img src="../webarch_logo.png"></a>
       </html>'
     ]);
   }
