@@ -19,7 +19,7 @@ class Mail {
       Click
       <a href="http://register.srmmilan.in/user/login.php">HERE</a> to login. <br> <b>Details</b> <br>Name: ' . $name . '<br>Password: ' . $password .
       '<br>
-        <a href="https://webarchsrm.com"><img src="../webarch_logo.png"></a>
+        <a href="https://webarchsrm.com"><img src="45.55.156.30/MilanCommonRegistration/webarch_logo.png"></a>
       </html>'
     ]);
   }
