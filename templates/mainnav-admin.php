@@ -21,12 +21,6 @@
               Registration <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../registration/">
-              <span data-feather="home"></span>
-              Registration <span class="sr-only">(current)</span>
-            </a>
-          </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="../registration/event.php">
               <span data-feather="file"></span>

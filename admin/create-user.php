@@ -12,15 +12,15 @@
   <form class="" action="process-create-user.php" method="post">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name">
+      <input type="text" class="form-control" id="name" name="name" required>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email">
+      <input type="email" class="form-control" id="email" name="email" required>
     </div>
     <div class="form-group">
       <label for="role">Role</label>
-      <select class="form-control" name="role">
+      <select class="form-control" name="role" required>
         <option value="user">User</option>
         <option value="admin">Admin</option>
       </select>
@@ -28,6 +28,29 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </main>
+
+<?php
+    if(isset($_GET['success'])) {
+        if($_GET['success'] == '') {
+    ?>
+    <script type="text/javascript">
+    swal("Mail Sent!", "User Created !", "success");
+    </script>
+    <?php
+        }
+    }
+    else if(isset($_GET['failed']))
+    {
+        if($_GET['failed'] == '')
+        {
+            ?>
+            <script type="text/javascript">
+            swal("Oops!", "User not created !", "error");
+            </script>
+            <?php
+        }
+    }
+    ?>
 
 <?php
   include '../templates/footer.php';

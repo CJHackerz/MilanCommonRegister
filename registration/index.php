@@ -22,19 +22,42 @@
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name">
+      <input type="text" class="form-control" id="name" name="name" required>
     </div>
     <div class="form-group">
       <label for="college">College Name</label>
-      <input type="text" class="form-control" id="college" name="college">
+      <input type="text" class="form-control" id="college" name="college" required>
     </div>
     <div class="form-group">
       <label for="name">Phone Number</label>
-      <input type="text" class="form-control" id="phone" name="phone">
+      <input type="text" class="form-control" id="phone" name="phone" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </main>
+
+<?php
+    if(isset($_GET['success'])) {
+        if($_GET['success'] == '') {
+    ?>
+    <script type="text/javascript">
+    swal("Nice!", "Successfully Registered !", "success");
+    </script>
+    <?php
+        }
+    }
+    else if(isset($_GET['failed']))
+    {
+        if($_GET['failed'] == '')
+        {
+            ?>
+            <script type="text/javascript">
+            swal("Oops!", "Not Registered !", "error");
+            </script>
+            <?php
+        }
+    }
+    ?>
 
 <?php
   include '../templates/footer.php';
