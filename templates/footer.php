@@ -22,7 +22,7 @@ body {
 }
 </style>
 
-  <footer class="footer" style="background-color: #515151">
+  <footer class="footer" style="background-color: #515151;">
       <div class="" align="center" style="color: #fff">Webarch &copy; 2018</div>
   </footer>
 

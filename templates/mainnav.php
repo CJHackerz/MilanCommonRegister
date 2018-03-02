@@ -5,7 +5,7 @@
   <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="../user/logout.php">Sign out</a>
+      <a class="nav-link" href="../user/logout.php" style="color: #fff;">Sign out</a>
     </li>
   </ul>
 </nav>
@@ -13,7 +13,7 @@
 <div class="container-fluid">
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
+      <div class="sidebar-sticky" style="background-color: #eafcf9;">
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link" href="../registration/">
@@ -33,7 +33,7 @@
               List
             </a>
           </li>
-          <li class="nav-item" style="margin-top: 380px;">
+          <li class="nav-item" style="margin-bottom: 380px;">
             <a class="nav-link" href="https://webarchsrm.com" target="_blank">
               <span data-feather="shopping-cart"></span>
               <img src="../webarch_logo.png" alt="" style="max-height: 57px; max-width: 170px;">
