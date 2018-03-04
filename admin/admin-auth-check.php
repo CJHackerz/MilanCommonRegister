@@ -7,7 +7,7 @@ session_start();
       die();
     }
   } else {
-    header('Location: ../index.php');
+    header('Location: ../registration/');
     die();
   }
 ?>

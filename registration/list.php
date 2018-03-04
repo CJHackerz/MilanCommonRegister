@@ -2,6 +2,7 @@
   include_once '../user/session-check.php';
 
   include_once '../templates/head.php';
+
   if($_SESSION['user']['role'] == 'admin') {
     include_once '../templates/mainnav-admin.php';
   } else {
@@ -20,7 +21,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3" style="border-bottom: 1px solid red;">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3" style="border-bottom: 1px solid #a0c4ff;">
     <h1 class="h2">Total Registrations</h1>
   </div>
 

@@ -5,28 +5,37 @@
 ?>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3" style="border-bottom: 1px solid red;">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3" style="border-bottom: 1px solid #a0c4ff;">
     <h1 class="h2">Create a User</h1>
   </div>
 
-  <form class="" action="process-create-user.php" method="post">
-    <div class="form-group"  style="font-weight: bold;">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name" required>
+
+  <div class="row justify-content-center">
+    <div class="card border-primary col-md-5 col-xs-12">
+      <div class="card-body">
+        <form class="" action="process-create-user.php" method="post">
+          <div class="form-group"  style="font-weight: bold;">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="form-group"  style="font-weight: bold;">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group"  style="font-weight: bold;">
+            <label for="role">Role</label>
+            <select class="form-control" name="role" required>
+              <option value="restricted">Restricted</option>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-outline-success btn-block">Submit</button>
+        </form>
+      </div>
     </div>
-    <div class="form-group"  style="font-weight: bold;">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" required>
-    </div>
-    <div class="form-group"  style="font-weight: bold;">
-      <label for="role">Role</label>
-      <select class="form-control" name="role" required>
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+  </div>
+
 </main>
 
 <?php

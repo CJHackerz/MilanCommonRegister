@@ -1,6 +1,10 @@
 <?php
   include_once '../user/session-check.php';
 
+  if($_SESSION['user']['role'] =='user') {
+    header('Location: ../registration/');
+  }
+
   include_once '../templates/head.php';
   if($_SESSION['user']['role'] == 'admin') {
     include_once '../templates/mainnav-admin.php';
@@ -21,46 +25,53 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3" style="border-bottom: 1px solid red;">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3" style="border-bottom: 1px solid #a0c4ff;">
     <h1 class="h2">Event/Domain Registration</h1>
   </div>
-      <form class="" action="process-event.php" method="post">
-        <div class="form-group">
-          <label for="milanid">Milan ID</label>
-          <input type="text" class="form-control" id="milanid" name="milan_id" value="<?php echo $participant['milan_id'];?>" readonly>
-        </div>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" name="name" value="<?php echo $participant['name'];?>" readonly>
-        </div>
-        <div class="form-group">
-          <label for="college">College Name</label>
-          <input type="text" class="form-control" id="college" name="college" value="<?php echo $participant['college_name'];?>" readonly>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $participant['phone'];?>" readonly>
-        </div>
-        <div class="form-group">
-          <label for="domain">Domain</label>
-          <select name="domain" class="form-control" id="domain_select" onchange="setDomain()">
 
-            <?php
-              foreach ($registration->domains as $key) {
-                echo '<option value="' . $key['value'] . '">' . $key['text'] . '</option>';
-              }
-            ?>
+  <div class="row justify-content-center">
+    <div class="card border-primary col-md-5 col-xs-12">
+      <div class="card-body">
+        <form class="" action="process-event.php" method="post">
+          <div class="form-group">
+            <label for="milanid">Milan ID</label>
+            <input type="text" class="form-control" id="milanid" name="milan_id" value="<?php echo $participant['milan_id'];?>" readonly style="font-weight: bold; font-size:1.4em;">
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo $participant['name'];?>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="college">College Name</label>
+            <input type="text" class="form-control" id="college" name="college" value="<?php echo $participant['college_name'];?>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $participant['phone'];?>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="domain">Domain</label>
+            <select name="domain" class="form-control" id="domain_select" onchange="setDomain()">
 
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="event">Event</label>
-          <select name="event" class="form-control" id="event_select">
-            <!-- <option value="volvo">Volvo</option> -->
-          </select>
-        </div>
-        <button type="submit" class="btn btn-success">Update</button>
-      </form>
+              <?php
+                foreach ($registration->domains as $key) {
+                  echo '<option value="' . $key['value'] . '">' . $key['text'] . '</option>';
+                }
+              ?>
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="event">Event</label>
+            <select name="event" class="form-control" id="event_select">
+              <!-- <option value="volvo">Volvo</option> -->
+            </select>
+          </div>
+          <button type="submit" class="btn btn-outline-success btn-block">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <br>
   <hr>
   <h3>Events already taken part in :</h3>
@@ -70,11 +81,12 @@
     foreach($ev as $key) {
      foreach($key as $k) {
        if($k['set']) {
-         echo '<h4>' . '<span class="badge badge-success">'.$k['text'].'</span></h4>';
+         echo '<span class="badge badge-success" style="font-size: 1em; margin: 5px 2px 5px 2px;">'.$k['text'].'</span>';
        }
      }
     }
   ?>
+  <br><br>
 </main>
 
 <?php
