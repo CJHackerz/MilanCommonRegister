@@ -36,7 +36,7 @@
           </div>
           <div class="form-group" style="font-weight: bold;">
             <label for="name">Phone Number</label>
-            <input type="text" class="form-control" id="phone" name="phone" required>
+            <input type="text" class="form-control" id="phone" name="phone" maxlength="10" required>
           </div>
           <div class="form-group" style="font-weight: bold;">
             <label for="payment">Payment</label>

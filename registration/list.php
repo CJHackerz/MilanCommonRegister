@@ -33,6 +33,7 @@
         <th scope="col">Name</th>
         <th scope="col">College</th>
         <th scope="col">Phone</th>
+        <th scope="col">Payment</th>
       </tr>
     </thead>
     <tbody>
@@ -45,6 +46,7 @@
             $name     = $row['name'];
             $college  = $row['college_name'];
             $phone    = $row['phone'];
+            $payment  = $row['payment'];
             echo "
               <tr>
                 <td>$i</td>
@@ -52,6 +54,7 @@
                 <td><a href='../registration/event.php?id=$milan_id'>$name</a></td>
                 <td>$college</td>
                 <td>$phone</td>
+                <td>$payment</td>
               </tr>
             ";
             $i++;
