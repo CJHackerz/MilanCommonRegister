@@ -50,6 +50,10 @@
             <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $participant['phone'];?>" readonly>
           </div>
           <div class="form-group">
+            <label for="payment">Payment</label>
+            <input type="text" class="form-control" id="payment" name="payment" value="<?php echo $participant['payment'];?>" readonly>
+          </div>
+          <div class="form-group">
             <label for="domain">Domain</label>
             <select name="domain" class="form-control" id="domain_select" onchange="setDomain()">
 

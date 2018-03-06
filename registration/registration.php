@@ -38,12 +38,20 @@
             <label for="name">Phone Number</label>
             <input type="text" class="form-control" id="phone" name="phone" required>
           </div>
+          <div class="form-group" style="font-weight: bold;">
+            <label for="payment">Payment</label>
+            <select name="payment" class="form-control" id="payment">
+              <option value=500>500</option>
+              <option value=400>400</option>
+              <option value=200>200</option>
+            </select>
+          </div>
           <button type="submit" class="btn btn-outline-success btn-block">Submit</button>
         </form>
       </div>
     </div>
   </div>
-
+  <br><br><br>
 </main>
 
 <?php

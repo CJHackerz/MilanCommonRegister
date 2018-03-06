@@ -12,7 +12,7 @@
 
     $registration = new Registration($db);
 
-    if($registration->newRegistration($_POST['name'], $_POST['college'], $_POST['phone'], $_SESSION['user']['email'], $_POST['milan_id'])) {
+    if($registration->newRegistration($_POST['name'], $_POST['college'], $_POST['phone'], $_SESSION['user']['email'], $_POST['milan_id'], $_POST['payment'])) {
       header('Location: ../registration/registration.php?success');
     } else {
       header('Location: ../registration/registration.php?failed');

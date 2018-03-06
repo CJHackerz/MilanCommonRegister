@@ -223,28 +223,31 @@ class Registration {
       )
     )
   );
+  public $payment;
   public $timestamp;
 
   public function __construct($db){
       $this->conn = $db;
   }
-  public function newRegistration($name, $college_name, $phone, $registerer, $milan_id) {
+  public function newRegistration($name, $college_name, $phone, $registerer, $milan_id, $payment) {
     $this->name = htmlspecialchars(strip_tags($name));
     $this->college_name = htmlspecialchars(strip_tags($college_name));
     $this->phone = htmlspecialchars(strip_tags($phone));
     $this->registerer = htmlspecialchars(strip_tags($registerer));
     $this->milan_id = htmlspecialchars(strip_tags($milan_id));
+    $this->payment = $payment;
 
     $events = json_encode($this->events);
 
-    $sql = "INSERT INTO registration(name, college_name, phone, registerer, milan_id, events)
+    $sql = "INSERT INTO registration(name, college_name, phone, registerer, milan_id, events, payment)
             VALUES(
               '$this->name',
               '$this->college_name',
               '$this->phone',
               '$this->registerer',
               '$this->milan_id',
-              '$events'
+              '$events',
+              $this->payment
             )";
     if($this->conn->query($sql)) {
       return true;
