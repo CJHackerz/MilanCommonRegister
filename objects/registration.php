@@ -275,6 +275,12 @@ class Registration {
     return $this->conn->query($sql);
   }
 
+  public function selectByPayment($payment) {
+    $sql = "SELECT * FROM registration where payment = $payment";
+
+    return $this->conn->query($sql);
+  }
+
   public function updateEvent($milan_id, $domain, $event) {
     $row = $this->selectParticipant($milan_id);
     $ev = json_decode($row['events'], true);
